@@ -34,12 +34,6 @@ class Centaur:
         self.is_standing = False
         self.is_laying = True
 
-    # def sleep(self):
-    #     if self.is_standing == False and self.is_laying == True:
-    #         self.action_counter = 0
-    #     else:
-    #         return 'NO!'
-
     def stand_up(self):
         self.is_standing = True
         self.is_laying = False
