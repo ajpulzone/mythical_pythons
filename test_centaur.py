@@ -4,12 +4,12 @@ from centaur import Centaur
 # @pytest.mark.skip
 def test_it_has_a_name():
     centaur = Centaur('George', 'Palomino')
-    assert(centaur.name) is 'George'
+    assert(centaur.name) == 'George'
 
 # @pytest.mark.skip
 def test_it_has_a_horse_breed():
     centaur = Centaur('George', 'Palomino')
-    assert(centaur.breed) is 'Palomino'
+    assert(centaur.breed) == 'Palomino'
 
 # @pytest.mark.skip
 def test_it_has_excellent_bow_skills():
