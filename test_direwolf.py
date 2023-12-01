@@ -1,5 +1,5 @@
 import pytest
-from direwolf import Direwolf
+from direwolf import Direwolf, Stark
 
 def test_it_has_a_name():
     wolf = Direwolf('Nymeria')
@@ -23,39 +23,35 @@ def test_it_can_have_another_home_and_be_another_size():
   assert wolf.name == 'Shaggydog'
   assert wolf.home == 'Winterfell'
   assert wolf.size == 'Smol Pupper'
+
+def test_that_the_starks_are_in_winterfell_by_default():
+  wolf = Direwolf('Summer', 'Winterfell')
+  stark = Stark('Bran')
+
+  assert wolf.home == 'Winterfell'
+  assert stark.location == 'Winterfell'
+
+def test_a_direwolf_starts_with_no_starks_to_protect():
+  wolf = Direwolf('Nymeria')
+  stark = Stark('Arya')
+
+  assert len(wolf.starks_to_protect) == 0
+
+def test_a_direwolf_can_protect_the_stark_children():
+  wolf = Direwolf('Nymeria', 'Riverlands')
+  stark = Stark('Arya', 'Riverlands')
+
+  wolf.protects(stark)
+
+  assert wolf.starks_to_protect[0].name == 'Arya'
+
+def test_a_direwolf_can_only_protect_the_stark_children_if_they_are_in_the_same_location():
+  wolf = Direwolf('Ghost')
+  stark = Stark('Jon', 'Kings Landing')
+
+  wolf.protects(stark)
+  assert(len(wolf.starks_to_protect)) == 0
   '''
-
-  it 'can have another home and be another size' do
-    wolf = Direwolf.new('Shaggydog', "Winterfell", "Smol Pupper")
-
-    expect(wolf.name).to eq('Shaggydog')
-    expect(wolf.home).to eq('Winterfell')
-    expect(wolf.size).to eq('Smol Pupper')
-  end
-
-  it 'the Starks are in Winterfell by default' do
-    wolf = Direwolf.new('Summer', 'Winterfell')
-    stark = Stark.new('Bran')
-
-    expect(wolf.home).to eq('Winterfell')
-    expect(stark.location).to eq('Winterfell')
-  end
-
-  it 'starts off with no Starks to protect' do
-    wolf = Direwolf.new('Nymeria')
-    stark = Stark.new('Arya')
-
-    expect(wolf.starks_to_protect).to be_empty
-  end
-
-  it 'protects the Stark children' do
-    wolf = Direwolf.new('Nymeria', 'Riverlands')
-    stark = Stark.new('Arya', 'Riverlands')
-
-    wolf.protects(stark)
-
-    expect(wolf.starks_to_protect.first.name).to eq('Arya')
-  end
 
   it 'can only protect the Stark Children if they are in the same location' do
     wolf = Direwolf.new('Ghost')
