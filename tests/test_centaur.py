@@ -105,6 +105,7 @@ def test_it_is_no_longer_cranky_after_sleeping():
     centaur.stand_up()
     assert(centaur.shoot()) == 'Twang!!!'
     assert(centaur.run()) == 'Clop clop clop clop!'
+
 '''
 # (Now you'll write your own tests!)
   it 'becomes rested after drinking a potion' do
