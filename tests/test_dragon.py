@@ -32,10 +32,10 @@ def test_it_was_born_hungry():
 
 def test_it_eats_alot():
     dragon = Dragon('Mnementh', 'bronze', 'Flar')
-    assert(dragon.is_hungry()) == False
-    dragon.eat()
-    assert(dragon.is_hungry()) == False
-    dragon.eat()
-    assert(dragon.is_hungry()) == False
+    assert(dragon.is_hungry()) == True
     dragon.eat()
     assert(dragon.is_hungry()) == True
+    dragon.eat()
+    assert(dragon.is_hungry()) == True
+    dragon.eat()
+    assert(dragon.is_hungry()) == False
