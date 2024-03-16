@@ -43,9 +43,24 @@ def test_medusa_can_only_have_three_victims():
     medusa.stare(victim4)
     assert len(medusa.statues) == 3
 
+def test_when_fourth_victim_is_stoned_the_first_victim_is_unstoned():
+    medusa = Medusa('Cassiopeia')
+    victim1 = Person('Perseus')
+    victim2 = Person('Godzilla')
+    victim3 = Person('Cerburus')
+    victim4 = Person('Tod')
 
-    # Your code here
-
-# def test_when_fourth_victim_is_stoned_the_first_victim_is_unstoned():
-#     # Your code here
+    medusa.stare(victim1)
+    assert len(medusa.statues) == 1
+    assert victim1.is_stoned() == True
+    medusa.stare(victim2)
+    assert len(medusa.statues) == 2
+    assert victim2.is_stoned() == True
+    medusa.stare(victim3)
+    assert len(medusa.statues) == 3
+    assert victim3.is_stoned() == True
+    medusa.stare(victim4)
+    assert len(medusa.statues) == 3
+    assert victim4.is_stoned() == True
+    assert victim1.is_stoned() == False
 
