@@ -4,4 +4,8 @@ class Medusa:
     self.statues = []
 
   def stare(self, victim):
-    self.statues.append(victim)
+    if len(self.statues) <= 2:
+      self.statues.append(victim)
+      victim.stoned = True
+
+  
