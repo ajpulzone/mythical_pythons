@@ -6,7 +6,7 @@ class Ogre:
     self.swings = 0
 
   def encounter(self, human):
-    # human.encounter_counter += 1
+    human.ogre_saw += 1
     if human.notices_ogre():
       self.swing_at(human)
 

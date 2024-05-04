@@ -5,14 +5,13 @@ class Human:
     self.ogre_saw = 0
 
   def notices_ogre(self):
-    if self.encounter_counter and self.encounter_counter % 3 == 0:
+    if self.ogre_saw and self.ogre_saw % 3 == 0:
       return True
     else:
       return False
 
-  # def is_knocked_out(self, ogre):
-  #   if ogre.swings == 2 and self.ogre
-  #    % 6:
-  #     return True
-  #   else:
-  #     return False
+  def is_knocked_out(self, ogre):
+    if ogre.swings == 2 and self.ogre % 6:
+      return True
+    else:
+      return False
